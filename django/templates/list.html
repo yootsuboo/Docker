@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="card">
+    <div class="card-header">
+      Todolist
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>Todo List の作成</p>
+        <footer class="blockquote-footer">計画を達成しよう<cite title="Source Title"> ー</cite></footer>
+      </blockquote>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="container"> 
+    {% for item in object_list %}
+    <div class="alert alert-success" role="alert">
+        <p>{{ item.title }}</p>
+        <a href="#" class="btn btn-info tabindex="-1" role="button" aria-disabled="true">編集画面</a>
+        <a href="#" class="btn btn-success tabindex="-1" role="button" aria-disabled="true">削除画面</a>
+        <a href="#" class="btn btn-primary tabindex="-1" role="button" aria-disabled="true">詳細画面</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
