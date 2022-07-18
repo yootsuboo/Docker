@@ -1,0 +1,9 @@
+version: '3'
+
+wervices:
+  app:
+    build: .
+    volumes:
+      - './work:/root/work'
+    tty: true
+    stdin_open: true
