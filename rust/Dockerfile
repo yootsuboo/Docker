@@ -1,4 +1,4 @@
-FROM rust:1-alpine3.14
+FROM rust:1.63-alpine3.16
 WORKDIR /root
 RUN apk --update add \
     vim \
