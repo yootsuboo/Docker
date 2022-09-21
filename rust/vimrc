@@ -66,6 +66,17 @@ set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
+" モードによるブロック形状変更
+if has('vim_starting')
+    " 挿入モード時に非点滅の縦棒カーソル
+    let &t_SI .= "\e[5 q"
+    " ノーマルモード時に非点滅のブロックタイプカーソル
+    let &t_EI .= "\e[1 q"
+    " 置換モード時に非点滅下線カーソル
+    let &t_SR .= "\e[3 q"
+endif
+
+" ---Plugin---
 call plug#begin('~/.vim/plugged')
   Plug 'rust-lang/rust.vim'
   Plug 'junegunn/goyo.vim'
