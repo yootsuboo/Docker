@@ -6,4 +6,4 @@ $ sh run.sh
 
 ## コンテナの停止
 
-$ docker stop *<image id>*
+$ docker stop *image id*
