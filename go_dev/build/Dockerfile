@@ -14,4 +14,5 @@ RUN mkdir -p /go/work
 WORKDIR /go/work
 ADD . /go/work
 RUN go install golang.org/x/tools/cmd/goimports@latest
+RUN go install honnef.co/go/tools/cmd/staticcheck@latest
 
