@@ -41,7 +41,6 @@ syntax enable
 set nowrap
 " インデントの可視化
 set list
-set listchars=trail:_,tab:>.,eol:$
 
 " Tab系
 " Tab文字を半角スペースにする
