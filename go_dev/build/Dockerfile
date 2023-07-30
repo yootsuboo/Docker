@@ -6,7 +6,8 @@ RUN apk --update add \
     tmux \
     nodejs \
     npm \
-    curl
+    curl \
+    gcc
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 COPY ./build/vimrc /root/.vimrc
