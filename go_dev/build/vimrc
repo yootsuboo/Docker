@@ -5,7 +5,7 @@ augroup yaml-tab
 augroup end
 
 " o -> カーソル位置の次の行に空行を挿入し、動作後もノーマルモード
-"nnoremap o :<C-u>call append(expand('.'), '')<Cr>j
+nnoremap o :<C-u>call append(expand('.'), '')<Cr>j
 
 " setting
 "文字コードをUFT-8に設定
@@ -40,7 +40,7 @@ syntax enable
 " 長い行を折り返さない
 set nowrap
 " インデントの可視化
-set list
+"set list
 
 " Tab系
 " Tab文字を半角スペースにする
@@ -77,9 +77,9 @@ endif
 
 " ---Plugin---
 call plug#begin('~/.vim/plugged')
-  Plug 'rust-lang/rust.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 call plug#end()
 syntax enable
 filetype plugin indent on
@@ -113,3 +113,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
