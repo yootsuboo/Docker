@@ -1,3 +1,6 @@
+" <leader>の変更
+let mapleader = ","
+
 set expandtab smarttab
 augroup yaml-tab
     autocmd!
@@ -5,7 +8,7 @@ augroup yaml-tab
 augroup end
 
 " o -> カーソル位置の次の行に空行を挿入し、動作後もノーマルモード
-nnoremap o :<C-u>call append(expand('.'), '')<Cr>j
+"nnoremap o :<C-u>call append(expand('.'), '')<Cr>j
 
 " setting
 "文字コードをUFT-8に設定
@@ -75,6 +78,7 @@ if has('vim_starting')
     let &t_SR .= "\e[3 q"
 endif
 
+
 " ---Plugin---
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/goyo.vim'
@@ -117,3 +121,26 @@ nmap <silent> gr <Plug>(coc-references)
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>i <Plug>(go-info)
+" カバレッジをみる
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+
+" ---------------------------
+" run :GoBuild or :GoTestCpmpile based on the go file
+function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+" ---------------------------
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
