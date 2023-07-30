@@ -48,3 +48,37 @@ $ docker-compose down
 $ docker image *\<image id\>*
 
 
+# How to Vim Plug
+
+Plug in のインストール(vimでファイルを開いている状態で)
+
+:GoInstallBinaries
+
+:PlugInstall
+
+:CocInstall coc-rls
+
+## Command
+
+ファイルの実行
+
+:GoRun %
+
+パッケージ全体を実行
+
+:GoRun
+
+ビルドする
+
+:GoBuild
+
+テストする
+
+:GoTest
+ドキュメント表示(関数の上にカーソルを合わせて)
+
+:GoDoc
+
+識別子をリネームする(対象の上にカーソルを合わせて)
+
+:GoRename
