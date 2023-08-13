@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.9'
 services:
   boiler-plate:
     container_name: boiler-plate
@@ -12,3 +12,6 @@ services:
       - ./build/.go_env
     environment:
       - TZ=Asia/Tokyo
+    ports:
+      - "3000:8080"
+    network_mode: host

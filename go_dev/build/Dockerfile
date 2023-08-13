@@ -17,4 +17,5 @@ WORKDIR /go/work
 ADD . /go/work
 RUN go install golang.org/x/tools/cmd/goimports@latest
 RUN go install honnef.co/go/tools/cmd/staticcheck@latest
-
+EXPOSE 8080
+ENV HOST 0.0.0.0
